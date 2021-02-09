@@ -64,7 +64,19 @@ export function executeWork(employee: DirectorInterface | TeacherInterface) {
     return tasks;
 }
 
-executeWork(createEmployee(200));
-// Getting to work
-executeWork(createEmployee(1000));
-// Getting to director tasks
+// executeWork(createEmployee(200));
+// // Getting to work
+// executeWork(createEmployee(1000));
+// // Getting to director tasks
+
+// Task 7
+type Subjects = "Math" | "History"
+
+export function teachClass(todayClass: Subjects) {
+    if (todayClass === "Math" || todayClass === "History") {
+        let tc: string = "Teaching ";
+        return tc + (todayClass as string);
+    }
+}
+
+// console.log(teachClass("LOLA"));
