@@ -56,7 +56,7 @@ interface StudentConstructor {
     new (firstName: string, lastName: string): StudentClassInterface;
 }
 
-class StudentClass implements StudentClassInterface{
+export class StudentClass implements StudentClassInterface{
     firstName: string;
     lastName: string;
 
