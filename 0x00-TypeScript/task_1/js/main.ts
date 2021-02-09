@@ -4,7 +4,7 @@ interface Teacher {
     location: string;
     fullTimeEmployee: boolean;
     yearsOfExperience?: number;
-    [key: string]: any;
+    [propName: string]: any;
 }
 
 const teacher3: Teacher = {
