@@ -47,26 +47,26 @@ export const printTeacher: printTeacherFunction = function (
 // console.log(printTeacher("John", "Doe")) //-> J. Doe
 
 // Task 4
+interface StudentConstructor {
+    new (firstName: string, lastName: string): StudentClassInterface;
+}
+
 interface StudentClassInterface {
     workOnHomework(): string;
     displayName(): string;
 }
 
-interface StudentConstructor {
-    new (firstName: string, lastName: string): StudentClassInterface;
-}
-
-export class StudentClass implements StudentClassInterface{
+export class StudentClass implements StudentClassInterface {
     firstName: string;
     lastName: string;
 
     constructor(firstName: string, lastName: string) {
-        this.firstName = firstName
-        this.lastName = lastName
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     workOnHomework(): string {
-        return 'Currently working';
+        return "Currently working";
     }
 
     displayName(): string {
