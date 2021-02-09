@@ -10,16 +10,16 @@ const student1: Student = {
     lastName: 'Hernandez',
     age: 25,
     location: 'Mexico'
-}
+};
 
 const student2: Student = {
     firstName: 'Pedro',
     lastName: 'Hernandez',
     age: 25,
     location: 'Mexico'
-}
+};
 
-const studentsList: Student[] = [student1, student2]
+const studentsList: Array<Student> = [student1, student2]
 
 const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
 
