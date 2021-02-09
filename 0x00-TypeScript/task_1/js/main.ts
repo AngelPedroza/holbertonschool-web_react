@@ -34,10 +34,10 @@ interface Directors extends Teacher {
 
 // Task 3
 interface printTeacherFunction {
-    (firstName: string, lastName: string): string
+    (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = function(firstName: string, lastName: string) {
+const printTeacher: printTeacherFunction = function (firstName: string, lastName: string) {
     return `${firstName.charAt(0)}. ${lastName}`;
 }
 
