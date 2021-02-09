@@ -52,7 +52,7 @@ export function isDirector(employee: DirectorInterface | TeacherInterface): empl
     return (employee as Director).workDirectorTasks !== undefined;
 }
 
-export function executeWork(employee: DirectorInterface | TeacherInterface) {
+export function executeWork(employee: DirectorInterface | TeacherInterface): string {
     let tasks;
     if (isDirector(employee)) {
         tasks = employee.workDirectorTasks()
@@ -70,9 +70,9 @@ export function executeWork(employee: DirectorInterface | TeacherInterface) {
 // // Getting to director tasks
 
 // Task 7
-type Subjects = "Math" | "History"
+type Subjects = "Math" | "History";
 
-export function teachClass(todayClass: Subjects) {
+export function teachClass(todayClass: Subjects): string {
     if (todayClass === "Math" || todayClass === "History") {
         let tc: string = "Teaching ";
         return tc + (todayClass as string);
