@@ -77,7 +77,8 @@ type Subjects = "Math" | "History";
 //         let tc: string = "Teaching ";
 //         return tc + (todayClass as string);
 //     }
-// }
+// } Not pass the first checker if not get the else if
+
 export function teachClass(todayClass:Subjects): string {
     if (todayClass === "Math") {
         return "Teaching Math";
