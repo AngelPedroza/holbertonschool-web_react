@@ -33,16 +33,15 @@ interface Directors extends Teacher {
 // console.log(director1);
 
 // Task 3
-/* eslint-disable @typescript-eslint/class-name-casing */
 interface printTeacherFunction {
     (firstName: string, lastName: string): string;
 }
 
-/* eslint-enable @typescript-eslint/class-name-casing */
-const printTeacher: printTeacherFunction = function (
+export const printTeacher: printTeacherFunction = function (
     firstName: string,
-    lastName: string): string {
+    lastName: string
+): string {
     return `${firstName.charAt(0)}. ${lastName}`;
-}
+};
 
 console.log(printTeacher("John", "Doe")) //-> J. Doe
