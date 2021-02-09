@@ -12,23 +12,23 @@ interface TeacherInterface {
 
 class Director implements DirectorInterface {
 
-    workFromHome() { return "Working from home"; }
+    workFromHome(): string { return "Working from home"; }
 
-    getToWork() { return "Getting a coffee break"; }
+    getCoffeeBreak(): string { return "Getting a coffee break"; }
 
-    workDirectorTasks() { return "Getting to director tasks"; }
+    workDirectorTasks(): string { return "Getting to director tasks"; }
 }
 
-class Teacher implements DirectorInterface {
+class Teacher implements TeacherInterface {
 
-    workFromHome() { return "Cannot work from home"; }
+    workFromHome(): string { return "Cannot work from home"; }
 
-    getCoffeeBreak() { return "Cannot have a break"; }
+    getCoffeeBreak(): string { return "Cannot have a break"; }
 
-    workDirectorTasks() { return "Getting to work"; }
+    workDirectorTasks(): string { return "Getting to work"; }
 }
 
-const createEmployee = function (salary: number | string) {
+const createEmployee = function (salary: number | string): Teacher | Director {
     if (typeof salary === "number" && salary < 500) {
         return new Teacher();
     }
