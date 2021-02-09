@@ -47,11 +47,9 @@ export const printTeacher: printTeacherFunction = function (
 // console.log(printTeacher("John", "Doe")) //-> J. Doe
 
 // Task 4
-interface StudentConstructor {
-    new (firstName: string, lastName: string): StudentClassInterface;
-}
-
 interface StudentClassInterface {
+    firstName: string;
+    lastName: string;
     workOnHomework(): string;
     displayName(): string;
 }
