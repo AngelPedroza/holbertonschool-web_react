@@ -1,3 +1,4 @@
+// Task 5
 interface DirectorInterface {
     workFromHome(): string;
     getCoffeeBreak(): string;
@@ -39,9 +40,31 @@ export function createEmployee(salary: number | string): Teacher | Director {
     return new Director();
 }
 
-console.log(createEmployee(200));
-// Teacher
-console.log(createEmployee(1000));
-// Director
-console.log(createEmployee('$500'));
-// Director
+// console.log(createEmployee(200));
+// // Teacher
+// console.log(createEmployee(1000));
+// // Director
+// console.log(createEmployee('$500'));
+// // Director
+
+// Task 6
+export function isDirector(employee: DirectorInterface | TeacherInterface): employee is Director {
+    return (employee as Director).workDirectorTasks !== undefined;
+}
+
+export function executeWork(employee: DirectorInterface | TeacherInterface) {
+    let tasks;
+    if (isDirector(employee)) {
+        tasks = employee.workDirectorTasks()
+    } else {
+        tasks = employee.workTeacherTasks()
+    }
+
+    console.log(tasks);
+    return tasks;
+}
+
+executeWork(createEmployee(200));
+// Getting to work
+executeWork(createEmployee(1000));
+// Getting to director tasks
