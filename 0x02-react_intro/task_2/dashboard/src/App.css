@@ -21,6 +21,10 @@
     margin: 50px 50px;
 }
 
+input {
+    margin: 0 10px;
+}
+
 .App-footer {
     width: 100%;
     border-top: 4px solid red;

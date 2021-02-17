@@ -12,14 +12,11 @@ function App() {
       </header>
       <body className="App-body">
         <p>Login to access the full dashboard</p>
-        <fieldset>
-            {/*<legend>Range</legend>*/}
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email"/>
+        <label htmlFor="email">Email:</label>
+        <input id="email" name="email"/>
 
-            <label htmlFor="password">Password</label>
-            <input id="password" name="password"/>
-        </fieldset>
+        <label htmlFor="password">Password:</label>
+        <input id="password" name="password"/>
         <button>OK</button>
       </body>
       <footer className="App-footer">
