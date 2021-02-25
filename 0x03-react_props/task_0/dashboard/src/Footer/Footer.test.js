@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 describe("Testing the behavior of Footer component", () => {
     it("Footer renders without crashing", () => {
         const wrapper = shallow(<Footer />);
-        expect(wrapper.exists());
+        expect(wrapper.exists()).toEqual(true);
     });
 
     it("Footer renders his children", () => {

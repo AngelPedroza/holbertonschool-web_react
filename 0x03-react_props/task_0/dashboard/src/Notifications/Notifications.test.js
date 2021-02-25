@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 describe("Testing the behavior of Notification component", () => {
     it("Notifications renders without crashing", () => {
         const wrapper = shallow(<Notifications />);
-        expect(wrapper.exists());
+        expect(wrapper.exists()).toEqual(true);
     });
     it("Notifications renders close-button", () => {
         const wrapper = shallow(<Notifications />);
