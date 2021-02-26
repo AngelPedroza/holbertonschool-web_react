@@ -53,7 +53,7 @@ describe("<CourseList />", () => {
 
         it("it renders the 3 rows without listCourses  without listCourses", () => {
             const wrapper = shallow(<CourseList />);
-            expect(wrapper.exists());
+            expect(wrapper.exists()).toEqual(true);
             wrapper.update();
             const item = wrapper.find("CourseListRow");
 

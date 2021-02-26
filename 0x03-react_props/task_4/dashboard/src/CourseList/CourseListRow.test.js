@@ -5,7 +5,7 @@ import CourseListRow from "./CourseListRow";
 describe("<CourseListRow />", () => {
     it("CourseListRow renders without crashing", () => {
         const wrapper = shallow(<CourseListRow textFirstCell="test" />);
-        expect(wrapper.exists());
+        expect(wrapper.exists()).toEqual(true);
     });
 
     it("When isHeader is true renders one cell with colspan = 2 when textSecondCell does not exist", () => {

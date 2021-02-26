@@ -9,7 +9,7 @@ describe("Testing the behavior of Notification component", () => {
 
     it("Notifications renders without crashing", () => {
         const wrapper = shallow(<Notifications />);
-        expect(wrapper.exists());
+        expect(wrapper.exists()).toEqual(true);
     });
 
     // it("Notifications renders close-button", () => {
@@ -20,7 +20,7 @@ describe("Testing the behavior of Notification component", () => {
 
     it("Notifications renders without crashing", () => {
         const wrapper = shallow(<Notifications />);
-        expect(wrapper.exists());
+        expect(wrapper.exists()).toEqual(true);
     });
 
     it("menu item is being displayed when displayDrawer is false", () => {
@@ -62,7 +62,7 @@ describe("Testing the behavior of Notification component", () => {
             const wrapper = shallow(
                 <Notifications displayDrawer listNotifications={listNotifications} />
             );
-            expect(wrapper.exists());
+            expect(wrapper.exists()).toEqual(true);
             wrapper.update();
             const listItems = wrapper.find("NotificationItem");
             expect(listItems).toBeDefined();
@@ -88,7 +88,7 @@ describe("Testing the behavior of Notification component", () => {
             const wrapper = shallow(
                 <Notifications displayDrawer listNotifications={listNotifications} />
             );
-            expect(wrapper.exists());
+            expect(wrapper.exists()).toEqual(true);
             wrapper.update();
             const listItems = wrapper.find("NotificationItem");
             expect(listItems).toHaveLength(1);

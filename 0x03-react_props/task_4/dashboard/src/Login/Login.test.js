@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 describe("Testing the behavior of App component", () => {
     it("Login renders without crashing", () => {
         const wrapper = shallow(<Login />);
-        expect(wrapper.exists());
+        expect(wrapper.exists()).toEqual(true);
     });
     it("Login renders App-body", () => {
         const wrapper = shallow(<Login />);

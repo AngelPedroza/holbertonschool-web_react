@@ -5,7 +5,7 @@ import NotificationItem from "./NotificationItem";
 describe("<Notifications />", () => {
     it("NotificationItem renders without crashing", () => {
         const wrapper = shallow(<NotificationItem />);
-        expect(wrapper.exists());
+        expect(wrapper.exists()).toEqual(true);
     });
     it("Verify that by passing dummy type and value props, it renders the correct html", () => {
         const wrapper = shallow(<NotificationItem type="default" value="test" />);
@@ -21,6 +21,6 @@ describe("<Notifications />", () => {
         const wrapper = shallow(<NotificationItem html={{ __html: "<u>test</u>" }} />);
         wrapper.update();
         const listItem = wrapper.find("li");
-        expect(listItem.html()).toEqual("<li><u>test</u></li>");
+        expect(listItem.html()).toEqual('<li data-notification-type="default"><u>test</u></li>');
     });
 });

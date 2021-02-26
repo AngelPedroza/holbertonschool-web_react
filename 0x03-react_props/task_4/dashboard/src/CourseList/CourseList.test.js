@@ -5,7 +5,7 @@ import CourseList from "./CourseList";
 describe("<CourseList />", () => {
     it("CourseList renders without crashing", () => {
         const wrapper = shallow(<CourseList />);
-        expect(wrapper.exists());
+        expect(wrapper.exists()).toEqual(true);
     });
     it("it renders the 5 different rows", () => {
         const wrapper = shallow(<CourseList />);
