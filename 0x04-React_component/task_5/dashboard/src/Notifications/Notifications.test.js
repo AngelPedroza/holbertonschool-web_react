@@ -124,5 +124,58 @@ describe("Testing the behavior of Notification component", () => {
             );
             jest.restoreAllMocks();
         });
+
+        it("does not rerender when updating the props of the component with the same list", () => {
+            const listNotifications = [
+                { id: 1, type: "default", value: "New course available" },
+                { id: 2, type: "urgent", value: "New resume available" },
+            ];
+
+            const wrapper = shallow(
+                <Notifications displayDrawer listNotifications={listNotifications} />
+            );
+
+            const shouldComponentUpdate = jest.spyOn(
+                Notifications.prototype,
+                "shouldComponentUpdate"
+            );
+
+            wrapper.setProps({ listNotifications: listNotifications });
+
+            expect(shouldComponentUpdate).toHaveBeenCalled();
+            expect(shouldComponentUpdate).toHaveLastReturnedWith(false);
+
+            jest.restoreAllMocks();
+        });
+
+        it("does rerender when updating the props of the component with a longer list", () => {
+            let listNotifications = [
+                { id: 1, type: "default", value: "New course available" },
+                { id: 2, type: "urgent", value: "New resume available" },
+            ];
+
+            const listNotifications2 = [
+                { id: 1, type: "default", value: "New course available" },
+                { id: 2, type: "urgent", value: "New resume available" },
+                { id: 3, type: "urgent", html: { __html: latestNotification } },
+            ];
+
+            console.log(listNotifications);
+            const wrapper = shallow(
+                <Notifications displayDrawer listNotifications={listNotifications} />
+            );
+
+            const shouldComponentUpdate = jest.spyOn(
+                Notifications.prototype,
+                "shouldComponentUpdate"
+            );
+
+            wrapper.setProps({ listNotifications: listNotifications2 });
+
+            expect(shouldComponentUpdate).toHaveBeenCalled();
+            expect(shouldComponentUpdate).toHaveLastReturnedWith(true);
+
+            jest.restoreAllMocks();
+        });
     });
 });
