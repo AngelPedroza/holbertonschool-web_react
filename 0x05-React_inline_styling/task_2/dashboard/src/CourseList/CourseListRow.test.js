@@ -1,8 +1,17 @@
 import { shallow } from "enzyme";
 import React from "react";
 import CourseListRow from "./CourseListRow";
+import {StyleSheetTestUtils} from "aphrodite";
 
 describe("<CourseListRow />", () => {
+
+    beforeAll(() => {
+        StyleSheetTestUtils.suppressStyleInjection();
+    });
+    afterAll(() => {
+        StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+    });
+
     it("CourseListRow renders without crashing", () => {
         const wrapper = shallow(<CourseListRow textFirstCell="test" />);
         expect(wrapper.exists()).toEqual(true);

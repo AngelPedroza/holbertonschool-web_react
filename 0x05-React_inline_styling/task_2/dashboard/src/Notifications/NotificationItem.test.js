@@ -1,8 +1,17 @@
 import { shallow, mount } from "enzyme";
 import React from "react";
 import NotificationItem from "./NotificationItem";
+import {StyleSheetTestUtils} from "aphrodite";
 
 describe("Test the NotificationItem", () => {
+
+    beforeAll(() => {
+        StyleSheetTestUtils.suppressStyleInjection();
+    });
+    afterAll(() => {
+        StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+    });
+
     it("NotificationItem renders without crashing", () => {
         const wrapper = shallow(<NotificationItem />);
         expect(wrapper.exists()).toEqual(true);
@@ -21,7 +30,8 @@ describe("Test the NotificationItem", () => {
         const wrapper = shallow(<NotificationItem html={{ __html: "<u>test</u>" }} />);
         wrapper.update();
         const listItem = wrapper.find("li");
-        expect(listItem.html()).toEqual('<li data-notification-type="default"><u>test</u></li>');
+        expect(listItem.html()).toEqual(
+            '<li data-notification-type="default" class="default_1tsdo2i"><u>test</u></li>');
     });
 
     it("Spy the onClick function", () => {

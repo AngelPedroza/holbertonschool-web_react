@@ -1,4 +1,5 @@
 import React from "react";
+import { StyleSheet, css } from 'aphrodite';
 import PropTypes from "prop-types";
 
 class NotificationItem extends React.PureComponent {
@@ -10,11 +11,14 @@ class NotificationItem extends React.PureComponent {
     render() {
         const { type, value, html, markAsRead, id } = this.props;
         let listItem;
+        let typeStyle = css(type === "urgent" ? styles.urgent : styles.default);
 
         if (value) {
             listItem = (
                 <li data-notification-type={type}
-                    onClick={() => markAsRead(id)}>
+                    onClick={() => markAsRead(id)}
+                    className={typeStyle}
+                >
                     {value}
                 </li>
             );
@@ -23,7 +27,9 @@ class NotificationItem extends React.PureComponent {
                 <li
                     data-notification-type={type}
                     dangerouslySetInnerHTML={html}
-                    onClick={() => markAsRead(id)}>
+                    onClick={() => markAsRead(id)}
+                    className={typeStyle}
+                >
                 </li>
             );
         }
@@ -49,5 +55,15 @@ NotificationItem.propTypes = {
     markAsRead: PropTypes.func,
     id: PropTypes.number,
 };
+
+const styles = StyleSheet.create({
+    default: {
+        color: "blue",
+    },
+
+    urgent: {
+        color: "red",
+    },
+});
 
 export default NotificationItem;

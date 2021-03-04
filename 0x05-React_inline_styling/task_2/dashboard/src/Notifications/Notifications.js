@@ -3,7 +3,6 @@ import { StyleSheet, css } from 'aphrodite';
 import NotificationItem from "./NotificationItem";
 import PropTypes from "prop-types";
 import NotificationItemShape from "./NotificationItemShape";
-import "./Notifications.css";
 import closeIcon from "../assets/close-icon.png";
 
 class Notifications extends React.Component {
@@ -67,7 +66,7 @@ class Notifications extends React.Component {
 }
 
 Notifications.defaultProps = {
-    displayDrawer: false,
+    displayDrawer: true,
     listNotifications: [],
 };
 

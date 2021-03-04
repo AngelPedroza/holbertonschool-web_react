@@ -1,33 +1,42 @@
 import React from "react";
+import { StyleSheet, css } from 'aphrodite';
 import PropTypes from 'prop-types';
+
+const rowStyles = { backgroundColor: "#f5f5f5ab" };
+const headerRowStyles = { backgroundColor: "#deb5b545" };
 
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
     let clRow;
-    const backgroundStyle = {
-        background: isHeader === true ? "#deb5b545" : "#f5f5f5ab"
-    }
+    const tableItemStyle = css(
+        isHeader ? styles.CourseListTh : styles.CourseListTd
+    );
 
     if (isHeader === true) {
         if (textSecondCell) {
             clRow = (
                 <>
-                    <th style={backgroundStyle}>{textFirstCell}</th>
-                    <th style={backgroundStyle}>{textSecondCell}</th>
+                    <th className={tableItemStyle}>{textFirstCell}</th>
+                    <th className={tableItemStyle}>{textSecondCell}</th>
                 </>
             );
         } else {
-            clRow = <><th style={backgroundStyle} colSpan="2">{textFirstCell}</th></>;
+            clRow = <><th className={css(styles.CourseListThSpan2)} colSpan="2">{textFirstCell}</th></>;
         }
     } else if (isHeader === false) {
         clRow = (
             <>
-                <td style={backgroundStyle}>{textFirstCell}</td>
-                <td style={backgroundStyle}>{textSecondCell}</td>
+                <td className={tableItemStyle}>{textFirstCell}</td>
+                <td className={tableItemStyle}>{textSecondCell}</td>
             </>
         );
     }
 
-    return <tr>{clRow}</tr>;
+    let isHeaderStyle;
+
+    if (isHeader) isHeaderStyle = headerRowStyles;
+    else isHeaderStyle = rowStyles;
+
+    return <tr style={isHeaderStyle}>{clRow}</tr>;
 }
 
 CourseListRow.defaultProps = {
@@ -40,5 +49,26 @@ CourseListRow.propTypes = {
     textFirstCell: PropTypes.string.isRequired,
     textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
+
+const cssVars = {
+    borderTableColor: "rgb(170, 170, 170);",
+};
+
+const styles = StyleSheet.create({
+    CourseListTh: {
+        borderTop: `1px solid ${cssVars.borderTableColor}`,
+        borderBottom: `1px solid ${cssVars.borderTableColor}`,
+        textAlign: "left",
+        fontSize: "18px",
+    },
+
+    CourseListThSpan2: {
+        textAlign: "center",
+    },
+
+    CourseListTd: {
+        textAlign: "left",
+    },
+});
 
 export default CourseListRow;

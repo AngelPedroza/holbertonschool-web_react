@@ -35,7 +35,7 @@ describe("Testing the behavior of Notification component", () => {
         const wrapper = shallow(<Notifications />);
         wrapper.update();
         const item = wrapper.find("div#Notifications");
-        expect(item).toHaveLength(0);
+        expect(item).toHaveLength(1);
     });
     it("menu item is being displayed when displayDrawer is true", () => {
         const wrapper = shallow(<Notifications displayDrawer />);
@@ -70,13 +70,13 @@ describe("Testing the behavior of Notification component", () => {
             expect(listItems).toBeDefined();
             expect(listItems).toHaveLength(3);
             expect(listItems.at(0).html()).toEqual(
-                '<li data-notification-type="default">New course available</li>'
+                '<li data-notification-type="default" class="default_1tsdo2i">New course available</li>'
             );
             expect(listItems.at(1).html()).toEqual(
-                '<li data-notification-type="urgent">New resume available</li>'
+                '<li data-notification-type="urgent" class="urgent_137u7ef">New resume available</li>'
             );
             expect(listItems.at(2).html()).toEqual(
-                `<li data-notification-type="urgent">${latestNotification}</li>`
+                `<li data-notification-type="urgent" class="urgent_137u7ef">${latestNotification}</li>`
             );
         });
     });
@@ -95,7 +95,7 @@ describe("Testing the behavior of Notification component", () => {
             const listItems = wrapper.find("NotificationItem");
             expect(listItems).toHaveLength(1);
             expect(listItems.html()).toEqual(
-                '<li data-notification-type="default">No new notification for now</li>'
+                '<li data-notification-type="default" class="default_1tsdo2i">No new notification for now</li>'
             );
         });
 
@@ -105,7 +105,7 @@ describe("Testing the behavior of Notification component", () => {
             const listItems = wrapper.find("NotificationItem");
             expect(listItems).toHaveLength(1);
             expect(listItems.html()).toEqual(
-                '<li data-notification-type="default">No new notification for now</li>'
+                '<li data-notification-type="default" class="default_1tsdo2i">No new notification for now</li>'
             );
         });
 
