@@ -94,16 +94,59 @@ const screenSize = {
   small: "@media screen and (max-width: 900px)",
 };
 
+const opacityKeyframes = {
+  from: {
+    opacity: 0.5,
+  },
+
+  to: {
+    opacity: 1,
+  },
+};
+
+const translateYKeyframes = {
+  "0%": {
+    transform: "translateY(0)",
+  },
+
+  "50%": {
+    transform: "translateY(-5px)",
+  },
+
+  "75%": {
+    transform: "translateY(5px)",
+  },
+
+  "100%": {
+    transform: "translateY(0)",
+  },
+};
+
+const borderKeyframes = {
+  "0%": {
+    border: `3px dashed cyan`,
+  },
+
+  "100%": {
+    border: `3px dashed ${cssVars.mainColor}`,
+  },
+};
+
 const styles = StyleSheet.create({
   menuItem: {
-    textAlign: "right",
+    float: "right",
+    backgroundColor: "#fff8f8",
+    ":hover": {
+      cursor: "pointer",
+      animationName: [opacityKeyframes, translateYKeyframes],
+      animationDuration: "1s, 0.5s",
+      animationIterationCount: 3,
+    },
   },
 
   menuItemPNoShow: {
     marginRight: "8px",
-    [screenSize.small]: {
-      display: "none",
-    },
+    display: "none",
   },
 
   menuItemPShow: {
@@ -112,9 +155,13 @@ const styles = StyleSheet.create({
 
   notifications: {
     float: "right",
-    border: `3px dashed ${cssVars.mainColor}`,
+    // border: `3px dashed ${cssVars.mainColor}`,
     padding: "10px",
     marginBottom: "20px",
+    animationName: [borderKeyframes],
+    animationDuration: "0.8s",
+    animationIterationCount: 1,
+    animationFillMode: "forwards",
     [screenSize.small]: {
       float: "none",
       border: "none",
