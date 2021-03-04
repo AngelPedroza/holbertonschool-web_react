@@ -26,11 +26,11 @@ class Notifications extends React.Component {
         const { displayDrawer, listNotifications } = this.props;
         return (
             <>
-                <div className="menuItem">
+                <div className={css(styles.menuItem)} id="menuItem">
                     <p>Your notifications</p>
                 </div>
                 {displayDrawer && (
-                    <div className={css(styles.notifications)}>
+                    <div className={css(styles.notifications)} id="Notifications">
                         <button
                             style={{
                                 background: "transparent",
@@ -77,17 +77,18 @@ Notifications.propTypes = {
 };
 
 const styles = StyleSheet.create({
+    menuItem: {
+        textAlign: "right",
+    },
     notifications: {
         border: '2px dashed red',
         padding: '10px',
         marginBottom: '20px',
     },
-
     closeImage: {
         width: '10px',
         height: '10px',
     },
-
     notificationsP: {
         margin: 0,
         marginTop: "15px",
