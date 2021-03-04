@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     default: {
         color: "blue",
     },
-
     urgent: {
         color: "red",
     },
