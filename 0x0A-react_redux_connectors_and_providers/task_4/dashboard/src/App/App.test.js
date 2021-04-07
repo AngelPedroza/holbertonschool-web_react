@@ -74,16 +74,20 @@ describe("<App />", () => {
 
 describe("<App Redux/>", () => {
   it("verify the connect react props works correctly in mapStateToProps", () => {
-    let state = fromJS({
-      isUserLoggedIn: true
-    });
+    let state = {
+      ui: fromJS({
+        isUserLoggedIn: true
+      }),
+    }
     const a = mapStateToProps(state);
     expect(a).toEqual({ isLoggedIn: true })
   });
   it("mapStateToProps returns the right object from displayDrawer when this change the state", () => {
-    let state = fromJS({
-      isNotificationDrawerVisible: true,
-    });
+    let state = {
+      ui: fromJS({
+        isNotificationDrawerVisible: true,
+      }),
+    };
 
     const result = mapStateToProps(state);
 

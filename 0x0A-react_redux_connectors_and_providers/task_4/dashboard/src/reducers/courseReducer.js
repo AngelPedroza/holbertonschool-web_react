@@ -6,8 +6,9 @@ import {
 import { coursesNormalizer } from '../schema/courses';
 import { Map, fromJS } from 'immutable';
 
+export const initialCourseState = [];
 
-export function courseReducer(state = Map([]), action) {
+export function courseReducer(state = Map(initialCourseState), action) {
     switch (action.type) {
         case FETCH_COURSE_SUCCESS: {
             const normalizedData = coursesNormalizer(action.data);
